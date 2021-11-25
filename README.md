@@ -1,5 +1,16 @@
 # Sample - Trident React App
 
+## Get access to the private feed
+1. Install vsts-npm-auth
+   ```powershell
+   PS C:\Sample-TridentReactApp> npm install -g vsts-npm-auth
+   ```
+
+2. Authenticate
+   ```powershell
+   PS C:\Sample-TridentReactApp> vsts-npm-auth -c .npmrc
+   ```
+
 ## Install, Serve and Run
 1. Install
    ```powershell
