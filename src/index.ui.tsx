@@ -1,11 +1,11 @@
-import { ExtensionClient } from "@trident/extension-client";
+import { createExtensionClient } from "@trident/extension-client";
 import { createBrowserHistory } from "history";
 import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 
 export function initialize() {
-    const client = new ExtensionClient();
+    const client = createExtensionClient();
     const history = createBrowserHistory();
     client.onNavigate(route => history.push(route.path));
 

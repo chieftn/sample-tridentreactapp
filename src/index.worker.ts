@@ -1,7 +1,7 @@
-import { ExtensionClient } from '@trident/extension-client';
+import { createExtensionClient } from '@trident/extension-client';
 
 export function initialize() {
-    const extensionClient = new ExtensionClient();
+    const extensionClient = createExtensionClient();
 
     extensionClient.onAction((message) => {
         switch (message.action) {

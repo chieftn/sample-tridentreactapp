@@ -1,15 +1,15 @@
 import React from "react";
 import { Route, Router, Switch } from "react-router-dom";
 import { History } from "history";
-import { ExtensionClient } from "@trident/extension-client";
+import { ExtensionClientAPI } from "@trident/extension-client";
 
 interface AppProps {
     history: History;
-    extensionClient: ExtensionClient;
+    extensionClient: ExtensionClientAPI;
 }
 
 interface PageProps {
-    extensionClient: ExtensionClient;
+    extensionClient: ExtensionClientAPI;
 }
 
 export function App({ history, extensionClient }: AppProps) {
