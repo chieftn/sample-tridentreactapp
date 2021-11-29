@@ -7,7 +7,7 @@ import { App } from "./App";
 export function initialize() {
     const client = createExtensionClient();
     const history = createBrowserHistory();
-    client.onNavigate(route => history.push(route.path));
+    client.onNavigate(route => history.push(route.targetUrl));
 
     ReactDOM.render(
         <App
