@@ -1,8 +1,9 @@
-import { createExtensionClient } from '@trident/extension-client';
+import { createExtensionClient, InitParams } from '@trident/extension-client';
 
-export function initialize() {
+export function initialize(params: InitParams) {
     const extensionClient = createExtensionClient();
-
+    console.log(params.environmentName);
+    
     extensionClient.onAction((message) => {
         switch (message.action) {
             case 'open.page1':

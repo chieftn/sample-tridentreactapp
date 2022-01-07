@@ -1,8 +1,8 @@
 import { bootstrap } from '@trident/extension-client';
 
 bootstrap({
-    initializeWorker: () =>
-        import('./index.worker').then(({ initialize }) => initialize()),
-    initializeUI: () =>
-        import('./index.ui').then(({ initialize }) => initialize()),
+    initializeWorker: (params) =>
+        import('./index.worker').then(({ initialize }) => initialize(params)),
+    initializeUI: (params) =>
+        import('./index.ui').then(({ initialize }) => initialize(params)),
 });

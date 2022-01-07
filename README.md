@@ -24,6 +24,6 @@
 
 3. Run
    
-   Page 1: http://localhost:4301/page1/?__iframeType=page&__iframeId=doesntmatter&__extensionName=my-extension
+   Page 1: http://localhost:4301/page1/?__iframeType=page&__iframeId=doesntmatter&__environmentName=Onebox&__extensionName=my-extension&__extensionHostOrigin=https://mockExtensionHost
    
-   Page 2: http://localhost:4301/page2/?__iframeType=page&__iframeId=doesntmatter&__extensionName=my-extension
+   Page 2: http://localhost:4301/page2/?__iframeType=page&__iframeId=doesntmatter&__environmentName=Onebox&__extensionName=my-extension&__extensionHostOrigin=https://mockExtensionHost
