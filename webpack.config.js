@@ -48,7 +48,7 @@ module.exports = {
         port: 4301,
         historyApiFallback: true,
         headers: {
-            "Access-Control-Allow-Origin": "https://trident-harness.azurewebsites.net",
+            "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET,OPTIONS",
             "Access-Control-Allow-Headers": "*"
         }
