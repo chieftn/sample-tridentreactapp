@@ -9,10 +9,19 @@ export function initialize(params: InitParams) {
     const client = createExtensionClient();
     const history = createBrowserHistory();
     const currentEnvironment = environments[params.environmentName] || environments.DEFAULT;
-    client.onNavigate(route => history.push(route.targetUrl));
-    
+    // client.onNavigate(route => history.push(route.targetUrl));
+    // const [location, setLocation] = React.useState<string>('');
+    // client.navigation.onNavigate(route => {
+    //     console.log('here we are');
+    //     history.replace(route.targetUrl);
+    //     setLocation(location);
+
+    // });
+    // client.navigation.navigate()
+
     ReactDOM.render(
         <App
+            // location={location}
             history={history}
             extensionClient={client}
             environmentConfig={currentEnvironment}
