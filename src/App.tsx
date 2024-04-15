@@ -242,6 +242,35 @@ const Page2: React.FC = () => {
   )
 }
 
+const PageFrame: React.FC = () => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 10}}>
+        <div style={{ flexShrink: 2 }}>HelloWorld suspawerj ad;lfj asdf;lj a;slfdjasd;lf kjasdl; asdfjasdfl;jsad;fl jda asd;flkjasdf </div>
+        <Outlet/>
+      </div>
+    );
+};
+
+interface PanelProps {
+  children: React.ReactNode;
+}
+const RightPanel: React.FC<PanelProps> = ({ children }) => {
+  return (
+      <div style={{ width: '100%'}}>
+        {children}
+        <Outlet/>
+      </div>
+  )
+};
+
+const BottomPanel: React.FC<PanelProps> = ({ children }) => {
+  return (
+      <div style={{ height: '50%'}}>
+        {children}
+      </div>
+  )
+};
+
 const Page3: React.FC = () => {
   const extensionClient = useContext(ExtensionContext);
 
@@ -264,7 +293,7 @@ const router = createMemoryRouter([
       element: <Root/>,
       children: [
         {
-          path: "/operational-insights/:id",
+          path: "operational-insights/:id",
          //  element: <></>,
           children: [
             {
@@ -283,12 +312,19 @@ const router = createMemoryRouter([
             },
             {
               path: 'subpages',
-              element: <Outlet/>,
+              element: <PageFrame/>,
               children: [
                 {
                   path: 'page3',
-                  element: <Page3/>
-                }
+                  element: <RightPanel><Page3/></RightPanel>,
+
+                  children: [
+                    {
+                      path: 'detail1',
+                      element: <BottomPanel><Page3/></BottomPanel>
+                    }
+                  ]
+                },
               ]
             }
           ],
