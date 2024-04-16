@@ -19,121 +19,7 @@ export function App({ history, extensionClient, environmentConfig }: AppProps) {
 
 
     return <ExtensionContext.Provider value={extensionClient}><RouterProvider router={router}/></ExtensionContext.Provider>
-
-    // client.navigation.navigate()
-
-    // console.log('here: ---------------------------------------------------------------------------------------------');
-    // console.log(history.location.pathname);
-    // console.log(history);
-    // // console.log(window.parent.location.href);
-
-    // const onClick1= () => {
-    //     console.log('here click');
-    //     extensionClient.navigation.navigate('extension', { path: "/page1"});
-    // };
-
-    // const onClick2 = () => {
-    //     console.log('here click');
-    //     extensionClient.navigation.navigate('extension', { path: "/page2"});
-    // };
-
-
-    // const me = useHistory();
-    // extensionClient.
-    // me.listen((you) => { console.log(you) })
-    // return (
-    //     <>
-    //     <div>heya: {location}</div>
-    //     <button onClick={onClick1}>page 1</button>
-    //     <button onClick={onClick2}>page 2</button>
-    //     </>
-
-    // );
-
-    // return <Router history={history}>
-    //     <Switch>
-    //         <Route path="/page1">
-    //             <Page1
-    //                 extensionClient={extensionClient}
-    //                 environmentConfig={environmentConfig}
-    //              />
-    //         </Route>
-    //         <Route path="/page2">
-    //             <Page2 extensionClient={extensionClient} />
-    //         </Route>
-    //         <Route path="/dialog">
-    //             <Dialog />
-    //         </Route>
-    //         <Route path="/panel">
-    //             <Panel />
-    //         </Route>
-    //     </Switch>
-    // </Router>;
 }
-
-// function Page1({ extensionClient, environmentConfig }: PageProps) {
-//     const EnvironmentJson= JSON.stringify(environmentConfig)
-
-
-//     return <>
-//         <div>
-//             Page 1 works!
-//         </div>
-//         <p> EnvironmentSettings: {EnvironmentJson} </p>
-//         <button
-//             onClick={() =>
-//                 extensionClient.page.open({
-//                     extensionName: "my-extension",
-//                     route: { path: "/page2"}
-//                 })
-
-//                 // extensionClient.openDialog({
-//                 //     extensionName: "my-extension",
-//                 //     route: { path: "/dialog" }
-//                 // })
-//             }
-//         >
-//             Open Dialog
-//         </button>
-//     </>;
-// }
-
-// function Page2({ extensionClient }: PageProps) {
-//     return <>
-//         <div>
-//             Page 2 works!
-//         </div>
-//         <button
-//                 onClick={() =>
-//                     extensionClient.page.open({
-//                         extensionName: "my-extension",
-//                         route: { path: "/page1"},
-//                         // mode: OpenMode.ReplaceAll
-//                     })
-//                 }
-//             // onClick={() =>
-//             //     extensionClient.openPanel({
-//             //         extensionName: "my-extension",
-//             //         route: { path: "/panel" }
-//             //     })
-//             // }
-//         >
-//             Open Panel
-//         </button>
-//     </>;
-// }
-
-// function Dialog() {
-//     return <div>
-//         Dialog works!
-//     </div>;
-// }
-
-// function Panel() {
-//     return <div>
-//         Panel works!
-//     </div>;
-// }
 
 const Root: React.FC = () => {
     const navigate = useNavigate();
@@ -242,22 +128,27 @@ const Page2: React.FC = () => {
   )
 }
 
-const PageFrame: React.FC = () => {
+interface PanelProps {
+  children: React.ReactNode;
+}
+
+const PageFrame: React.FC<PanelProps> = ({ children }) => {
     return (
-      <div style={{ display: 'flex', flexDirection: 'row', gap: 10}}>
-        <div style={{ flexShrink: 2 }}>HelloWorld suspawerj ad;lfj asdf;lj a;slfdjasd;lf kjasdl; asdfjasdfl;jsad;fl jda asd;flkjasdf </div>
-        <Outlet/>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: 10, height: '100%'}}>
+        <div style={{ flexShrink: 2, flexGrow: 1 }}>
+            <div style={{ backgroundColor: 'gray', height: '100%', overflow: 'auto' }}>{children}</div>
+        </div>
+       <Outlet/>
       </div>
     );
 };
 
-interface PanelProps {
-  children: React.ReactNode;
-}
 const RightPanel: React.FC<PanelProps> = ({ children }) => {
   return (
-      <div style={{ width: '100%'}}>
-        {children}
+      <div style={{ flexGrow: 2, display: 'flex', flexDirection: "column", gap: 10 }}>
+        <div style={{backgroundColor: 'red', flexGrow: 4, overflow: 'auto' }}>
+          {children}
+        </div>
         <Outlet/>
       </div>
   )
@@ -265,25 +156,27 @@ const RightPanel: React.FC<PanelProps> = ({ children }) => {
 
 const BottomPanel: React.FC<PanelProps> = ({ children }) => {
   return (
-      <div style={{ height: '50%'}}>
+      <div style={{ backgroundColor: 'pink', flexGrow: 3, overflow: 'auto'}}>
         {children}
       </div>
   )
 };
 
 const Page3: React.FC = () => {
-  const extensionClient = useContext(ExtensionContext);
+  // const extensionClient = useContext(ExtensionContext);
+  const entries = React.useMemo(() => {
+    return new Array(400).fill(null).map((s , i) => `hello ${i}`);
+  }, []);
 
-  const close = () => {
-    extensionClient.dialog.close({
-      data: { hello: 'world'}
-    })
-  }
+  // const close = () => {
+  //   extensionClient.dialog.close({
+  //     data: { hello: 'world'}
+  //   })
+  // }
 
   return (
-    <div>Page 3 --------
-      <button onClick={close}>close</button>
-    </div>
+    <ul>{entries.map(s => <li>{s}</li>)}
+    </ul>
   )
 };
 
@@ -312,7 +205,7 @@ const router = createMemoryRouter([
             },
             {
               path: 'subpages',
-              element: <PageFrame/>,
+              element: <PageFrame><Page3/></PageFrame>,
               children: [
                 {
                   path: 'page3',
