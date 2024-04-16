@@ -134,18 +134,24 @@ interface PanelProps {
 
 const PageFrame: React.FC<PanelProps> = ({ children }) => {
     return (
-      <div style={{ display: 'flex', flexDirection: 'row', gap: 10, height: '100%'}}>
-        <div style={{ flexShrink: 2, flexGrow: 1 }}>
-            <div style={{ backgroundColor: 'gray', height: '100%', overflow: 'auto' }}>{children}</div>
+      <div style={{ display: 'flex', flexDirection: 'column', height: '100%'}}>
+        <div>
+          <span>ribbon</span>
         </div>
-       <Outlet/>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: 10, overflow: 'auto' }}>
+            <div style={{ flexShrink: 2, flexGrow: 1, overflow: 'auto' }}>
+                <div style={{ backgroundColor: 'gray' }}>{children}</div>
+            </div>
+            <Outlet/>
+          </div>
+
       </div>
     );
 };
 
 const RightPanel: React.FC<PanelProps> = ({ children }) => {
   return (
-      <div style={{ flexGrow: 2, display: 'flex', flexDirection: "column", gap: 10 }}>
+      <div style={{ flexGrow: 2, display: 'flex', flexDirection: "column", gap: 10, overflow: 'auto' }}>
         <div style={{backgroundColor: 'red', flexGrow: 4, overflow: 'auto' }}>
           {children}
         </div>
