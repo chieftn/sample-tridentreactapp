@@ -3,6 +3,7 @@ import { createMemoryRouter, RouterProvider, useNavigate, Outlet, useParams } fr
 import { History } from "history";
 import { ExtensionClientAPI } from "@trident/extension-client";
 import { EnvironmentSetting } from "./environments";
+import { Client } from './Client';
 
 interface AppProps {
     history: History;
@@ -25,6 +26,16 @@ const Root: React.FC = () => {
     const navigate = useNavigate();
     const extensionClient = useContext(ExtensionContext);
     // const [, setLocation] = React.useState<string>('');
+
+    React.useEffect(() => {
+      const me = async () => {
+        const client = new Client();
+        await client.fetch({});
+      }
+
+      void me();
+    }, []);
+
 
     React.useEffect(() => {
         extensionClient.navigation.onNavigate(route => {
