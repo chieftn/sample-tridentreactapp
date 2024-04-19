@@ -29,8 +29,12 @@ const Root: React.FC = () => {
 
     React.useEffect(() => {
       const me = async () => {
-        const client = new Client();
-        await client.fetch({});
+        try {
+          const client = new Client();
+          await client.fetch({});
+        } catch(e) {
+          console.log(e);
+        }
       }
 
       void me();
