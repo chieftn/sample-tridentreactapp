@@ -88,14 +88,14 @@ export class Client {
     }
 
     public async fetchMe(params: FetchParams): Promise<string> {
-        return loggedMethodAsync(async () => {
+        return withLoggingAsync({ description: 'hi' })(async () => {
             const response = await fetch('https://bing.com');
             console.log(response);
             return 'hi';
         })();
     }
 
-    @withLoggingAsync({ description: 'me'})
+    @withLoggingAsync({ description: 'certifiedeventname'})
     public async fetch(params: FetchParams): Promise<string> {
         const response = await fetch('https://bing.com');
         console.log(response);

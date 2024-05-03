@@ -31,7 +31,7 @@ const Root: React.FC = () => {
       const me = async () => {
         try {
           const client = new Client();
-          await client.fetch({});
+          await client.fetchMe({});
         } catch(e) {
           console.log(e);
         }
