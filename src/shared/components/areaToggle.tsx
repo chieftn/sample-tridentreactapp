@@ -1,26 +1,27 @@
 import * as  React from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Menu, MenuTrigger, MenuButton, MenuList, MenuItem, MenuPopover } from '@fluentui/react-components';
-import { getConfigureRoute, getExploreRoute, getInsightsRoute } from '../routing/navigator';
+import { useFabricNavigate } from '../hooks/useFabricNavigate';
+import { getConfigureRoute, getExploreRoute, getInsightsRoute } from '../routing/router';
 
 export interface AreaToggleProps {
     currentArea: 'configure' | 'explore' | 'insights';
 }
 export const AreaToggle: React.FC<AreaToggleProps> = ({ currentArea }) => {
     const { artifactId } = useParams();
-    const navigate =  useNavigate()
+    const { openPage } =  useFabricNavigate()
 
 
     const onConfigure = () => {
-        navigate(getConfigureRoute({ artifactId }));
+        openPage({ path: getConfigureRoute({ artifactId }) });
     };
 
     const onExplore =() => {
-        navigate(getExploreRoute({ artifactId }));
+        openPage({ path: getExploreRoute({ artifactId }) });
     };
 
     const onInsights = () => {
-        navigate(getInsightsRoute({ artifactId }))
+        openPage({ path: getInsightsRoute({ artifactId }) } );
     };
 
 

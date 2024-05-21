@@ -3,7 +3,8 @@ import type { ExtensionRoute } from '@trident/extension-client';
 
 export interface OpenPageParameters {
     extensionName?: string;
-    route: ExtensionRoute;
+    path: string;
+    queryParams?: Record<string,string>;
 }
 
 export interface OpenDialogParameters {
@@ -22,11 +23,11 @@ export const useFabricNavigate = (): FabricNavigator => {
 
     return {
         openPage: params => {
-            const { extensionName, route } = params;
+            const { extensionName, path, queryParams } = params;
 
             client.page.open({
                 extensionName: extensionName || 'digitaloperations',
-                route
+                route: { path, queryParams }
             })
         },
         openDialog: params => {

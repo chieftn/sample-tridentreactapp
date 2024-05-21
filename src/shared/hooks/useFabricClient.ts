@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
-import { ExtensionClient } from '@trident/extension-client';
+import { ExtensionClientAPI } from '@trident/extension-client';
 
-export const FabricClientContext = createContext<ExtensionClient>(undefined);
-export const useFabricClient = (): ExtensionClient => useContext(FabricClientContext);
+export const FabricClientContext = createContext<ExtensionClientAPI>(undefined);
+export const useFabricClient = (): ExtensionClientAPI => useContext(FabricClientContext);
 
 

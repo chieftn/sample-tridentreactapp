@@ -4,24 +4,51 @@ import { ConfigureMainView } from '../../views/configureMainView';
 import { ExploreMainView } from '../../views/exploreMainView';
 import { InsightsMainView } from '../../views/insightsMainView';
 
+export const routeSegments = {
+  operationInsights: 'operational-insights',
+  configure: '',
+  explore: 'explore',
+  insights: 'insights'
+}
+
+export const routeParameters = {
+  artifactId: 'artifactId'
+}
+
+export interface GetAreaRouteParameters {
+  artifactId: string;
+}
+
+export const getConfigureRoute = (params: GetAreaRouteParameters): string => {
+  return `/${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.configure}`;
+};
+
+export const getExploreRoute = (params: GetAreaRouteParameters): string => {
+  return  `/${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.explore}`;
+};
+
+export const getInsightsRoute = (params: GetAreaRouteParameters): string => {
+  return `/${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.insights}`;
+};
+
 export const router = createMemoryRouter([
     {
       path: '/',
       element: <Outlet/>,
       children: [
         {
-          path: '/operational-insights/:artifactId',
+          path: `/${routeSegments.operationInsights}/:${routeParameters.artifactId}`,
           children: [
             {
-              path: '',
+              path: routeSegments.configure,
               element: <ConfigureMainView/>
             },
             {
-              path: 'explore',
+              path: routeSegments.explore,
               element: <ExploreMainView/>
             },
             {
-              path: "insights",
+              path: routeSegments.insights,
               element: <InsightsMainView/>
             },
             // {
