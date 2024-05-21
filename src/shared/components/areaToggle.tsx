@@ -1,7 +1,7 @@
 import * as  React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Menu, MenuTrigger, MenuButton, MenuList, MenuItem, MenuPopover } from '@fluentui/react-components';
-import { getConfigureRoute, getExploreRoute, getInsightsRoute } from '../routing/routes';
+import { getConfigureRoute, getExploreRoute, getInsightsRoute } from '../routing/navigator';
 
 export interface AreaToggleProps {
     currentArea: 'configure' | 'explore' | 'insights';

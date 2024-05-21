@@ -1,3 +1,5 @@
+import type { ExtensionClient } from '@trident/extension-client';
+
 export const routeSegments = {
     operationInsights: 'operational-insights',
     configure: '',
@@ -21,10 +23,22 @@ export const getInsightsRoute = (params: GetAreaRouteParameters): string => {
     return `${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.insights}`;
 };
 
-export interface NavigateProps {
-    path: string;
-}
-export const navigate = ({ }: NavigateProps): void => {
+export const navigatorFactory = (client: ExtensionClient): Navigator => {
 
-};
+
+
+}
+
+export class Navigator {
+    private client: ExtensionClient;
+
+    constructor(client: ExtensionClient) {
+        this.client = client;
+    }
+
+
+    navigateToPage() {
+
+    }
+}
 
