@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { createMemoryRouter, Outlet } from "react-router-dom";
-import { StandardLayout } from '../components/standardLayout';
+import { ConfigureMainView } from '../../views/configureMainView';
+import { ExploreMainView } from '../../views/exploreMainView';
+import { InsightsMainView } from '../../views/insightsMainView';
 
 export const router = createMemoryRouter([
     {
@@ -8,19 +10,19 @@ export const router = createMemoryRouter([
       element: <Outlet/>,
       children: [
         {
-          path: 'groups/:workgroupId/operational-insights/:digitalTwinsId',
+          path: '/operational-insights/:artifactId',
           children: [
             {
               path: '',
-              element: <StandardLayout body={<span>explore</span>}/>
+              element: <ConfigureMainView/>
             },
             {
-              path: 'configure',
-              element: <StandardLayout body={<span>configure</span>}/>
+              path: 'explore',
+              element: <ExploreMainView/>
             },
             {
               path: "insights",
-              element: <StandardLayout body={<span>insights</span>}/>
+              element: <InsightsMainView/>
             },
             // {
             //   path: 'subpages',
