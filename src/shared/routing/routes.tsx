@@ -19,4 +19,12 @@ export const getExploreRoute = (params: GetAreaRouteParameters): string => {
 
 export const getInsightsRoute = (params: GetAreaRouteParameters): string => {
     return `${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.insights}`;
+};
+
+export interface NavigateProps {
+    path: string;
 }
+export const navigate = ({ }: NavigateProps): void => {
+
+};
+
