@@ -1,25 +1,26 @@
 import * as React from 'react';
-import { createMemoryRouter } from "react-router-dom";
+import { createMemoryRouter, Outlet } from "react-router-dom";
+import { StandardLayout } from '../components/standardLayout';
 
 export const router = createMemoryRouter([
     {
       path: '/',
-      element: <div>Hello</div>,
+      element: <Outlet/>,
       children: [
         {
-          path: "operational-insights/:id",
+          path: 'groups/:workgroupId/operational-insights/:digitalTwinsId',
           children: [
             {
               path: '',
-              element: <div>Hello ''</div>
+              element: <StandardLayout body={<span>explore</span>}/>
             },
             {
-              path: "page1",
-              element: <div>Hello page1</div>
+              path: 'configure',
+              element: <StandardLayout body={<span>configure</span>}/>
             },
             {
-              path: "page2",
-              element: <div>Hello page2</div>
+              path: "insights",
+              element: <StandardLayout body={<span>insights</span>}/>
             },
             // {
             //   path: 'subpages',
