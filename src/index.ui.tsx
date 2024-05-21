@@ -1,31 +1,31 @@
-import { createExtensionClient, InitParams } from "@trident/extension-client";
-import { createBrowserHistory } from "history";
-import React from "react";
-import ReactDOM from "react-dom";
-import { App } from "./App";
-import { environments } from "./environments";
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { RouterProvider } from 'react-router-dom';
+import { createExtensionClient, InitParams } from '@trident/extension-client';
+import { environments } from './environments';
+import { router } from './apps/shared/routing/router';
 
 export function initialize(params: InitParams) {
     const client = createExtensionClient();
-    const history = createBrowserHistory();
     const currentEnvironment = environments[params.environmentName] || environments.DEFAULT;
     // client.onNavigate(route => history.push(route.targetUrl));
     // const [location, setLocation] = React.useState<string>('');
-    // client.navigation.onNavigate(route => {
+    client.navigation.onNavigate(route => {
+        router.set
     //     console.log('here we are');
     //     history.replace(route.targetUrl);
     //     setLocation(location);
 
-    // });
+    });
     // client.navigation.navigate()
 
     ReactDOM.render(
-        <App
-            // location={location}
-            history={history}
-            extensionClient={client}
-            environmentConfig={currentEnvironment}
-        />,
-        document.querySelector("#root")
+        <React.StrictMode>
+             <RouterProvider router={router} />
+
+
+        </React.StrictMode>,
+        document.querySelector('#root')
     );
 }
