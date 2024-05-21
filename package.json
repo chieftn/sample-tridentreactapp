@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fluentui/react-components": "^9.49.1",
     "@trident/extension-client": "^1.55.3",
     "history": "^4.9.0",
     "react": "^17.0.2",
