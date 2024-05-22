@@ -3,16 +3,20 @@ import { createMemoryRouter, Outlet } from "react-router-dom";
 import { ConfigureMainView } from '../../views/configureMainView';
 import { ExploreMainView } from '../../views/exploreMainView';
 import { InsightsMainView } from '../../views/insightsMainView';
+import { ConfigureJobs } from '../../views/configureJobs';
 
-export const routeSegments = {
+export const routeSegments: Record<string, string> = {
   operationInsights: 'operational-insights',
+  create: 'create',
   configure: '',
   explore: 'explore',
-  insights: 'insights'
+  insights: 'insights',
+  jobs: 'jobs'
 }
 
-export const routeParameters = {
-  artifactId: 'artifactId'
+export const routeParameters: Record<string, string> = {
+  artifactId: 'artifactId',
+  workspaceId: 'workspaceId'
 }
 
 export interface GetAreaRouteParameters {
@@ -22,6 +26,10 @@ export interface GetAreaRouteParameters {
 export const getConfigureRoute = (params: GetAreaRouteParameters): string => {
   return `/${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.configure}`;
 };
+
+export const getConfigureJobsRoute = (params: GetAreaRouteParameters): string => {
+  return `/${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.configure}/${routeSegments.jobs}`;
+}
 
 export const getExploreRoute = (params: GetAreaRouteParameters): string => {
   return  `/${routeSegments.operationInsights}/${params.artifactId}/${routeSegments.explore}`;
@@ -37,11 +45,25 @@ export const router = createMemoryRouter([
       element: <Outlet/>,
       children: [
         {
+          path: routeSegments.create,
+          element: <span>create</span>
+        },
+        {
           path: `/${routeSegments.operationInsights}/:${routeParameters.artifactId}`,
           children: [
             {
               path: routeSegments.configure,
-              element: <ConfigureMainView/>
+              element: <Outlet/>,
+              children: [
+                {
+                  path: '',
+                  element: <ConfigureMainView/>
+                },
+                {
+                  path: routeSegments.jobs,
+                  element: <ConfigureJobs/>
+                }
+              ]
             },
             {
               path: routeSegments.explore,
@@ -49,25 +71,18 @@ export const router = createMemoryRouter([
             },
             {
               path: routeSegments.insights,
-              element: <InsightsMainView/>
+              element: <Outlet/>,
+              children: [
+                {
+                  path: '',
+                  element: <InsightsMainView/>
+                },
+                {
+                  path: 'hello',
+                  element: <span>hello create</span>
+                }
+              ]
             },
-            // {
-            //   path: 'subpages',
-            //   element: <PageFrame/>,
-            //   children: [
-            //     {
-            //       path: 'page3',
-            //       element: <RightPanel><Page3/></RightPanel>,
-
-            //       children: [
-            //         {
-            //           path: 'detail1',
-            //           element: <BottomPanel><Page3/></BottomPanel>
-            //         }
-            //       ]
-            //     },
-            //   ]
-            // }
           ],
         }
       ]

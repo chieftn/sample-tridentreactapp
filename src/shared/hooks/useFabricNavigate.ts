@@ -1,5 +1,6 @@
-import { useFabricClient } from './useFabricClient';
 import type { ExtensionRoute } from '@trident/extension-client';
+import { EXTENSION_NAMES } from '../constants/environmentConstants';
+import { useFabricClient } from './useFabricClient';
 
 export interface OpenPageParameters {
     extensionName?: string;
@@ -19,6 +20,7 @@ export interface FabricNavigator {
 }
 
 export const useFabricNavigate = (): FabricNavigator => {
+
     const client = useFabricClient();
 
     return {
@@ -26,7 +28,7 @@ export const useFabricNavigate = (): FabricNavigator => {
             const { extensionName, path, queryParams } = params;
 
             client.page.open({
-                extensionName: extensionName || 'digitaloperations',
+                extensionName: extensionName || EXTENSION_NAMES.DigitalOperations,
                 route: { path, queryParams }
             })
         },

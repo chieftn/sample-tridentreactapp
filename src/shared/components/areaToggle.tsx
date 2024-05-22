@@ -24,7 +24,6 @@ export const AreaToggle: React.FC<AreaToggleProps> = ({ currentArea }) => {
         openPage({ path: getInsightsRoute({ artifactId }) } );
     };
 
-
     return (
         <Menu>
             <MenuTrigger disableButtonEnhancement>
