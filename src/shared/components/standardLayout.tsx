@@ -6,19 +6,24 @@ export const useStandardLayoutStyles = makeStyles({
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
+        '@media (max-height: 500px)': {
+            height: 'auto',
+        },
         backgroundColor: tokens.colorNeutralBackground3,
         rowGap: tokens.spacingVerticalS,
         paddingInline: tokens.spacingVerticalL
     },
     headerStyle: {
-        flexShrink: 1,
+        flexGrow: 0,
+        flexShrink: 0,
     },
     bodyStyle: {
         overflowY: 'auto',
-        flex: 3
+        flexGrow: 2
     },
     footerStyle: {
-        flexShrink: 1,
+        flexGrow: 0,
+        flexShrink: 0,
     }
 })
 

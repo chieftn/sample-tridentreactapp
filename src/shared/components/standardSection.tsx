@@ -7,7 +7,6 @@ export const useStandardSectionStyles = makeStyles({
         background: tokens.colorNeutralBackground1,
         borderRadius: tokens.borderRadiusMedium,
         boxShadow: tokens.shadow4,
-        paddingInlineStart: tokens.spacingVerticalS,
         ...shorthands.borderWidth('1px'),
         ...shorthands.borderStyle('solid'),
         ...shorthands.borderColor(tokens.colorNeutralStroke1),
