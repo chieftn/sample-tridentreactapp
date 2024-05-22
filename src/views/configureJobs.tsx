@@ -13,15 +13,16 @@ export const ConfigureJobs: React.FC = () => {
                     <Breadcrumb size={'large'}>
                         <BreadcrumbItem>Configure</BreadcrumbItem>
                         <BreadcrumbDivider/>
-                        <BreadcrumbItem>Jobs</BreadcrumbItem>
+                        <BreadcrumbItem>Jo  bs</BreadcrumbItem>
                     </Breadcrumb>
                     <StandardSection>Hello Ribbon</StandardSection>
+                    <StandardSection><div style={{ margin: 12}}>hello ribbon 2</div></StandardSection>
                 </>
             }
             body={
                <StandardSection>
                     <StandardCanvas>
-                        <ul style={{ overflowY: 'auto'}}>
+                        <ul>
                             <li>hello</li>
                             <li>hello</li>
                             <li>hello</li>
