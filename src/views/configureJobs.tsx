@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Breadcrumb, BreadcrumbDivider, BreadcrumbItem } from '@fluentui/react-components';
 import { StandardLayout } from '../shared/components/standardLayout';
+import { StandardSection } from 'src/shared/components/standardSection';
 
 export const ConfigureJobs: React.FC = () => {
 
@@ -9,14 +10,14 @@ export const ConfigureJobs: React.FC = () => {
             header={
                 <>
                     <Breadcrumb size={'large'}>
-                        <BreadcrumbItem onClick={}>Configure</BreadcrumbItem>
+                        <BreadcrumbItem>Configure</BreadcrumbItem>
                         <BreadcrumbDivider/>
                         <BreadcrumbItem>Jobs</BreadcrumbItem>
                     </Breadcrumb>
                 </>
             }
             body={
-                <span>Jobs history</span>
+                <StandardSection>Hello world</StandardSection>
             }
         />
     )
