@@ -1,4 +1,25 @@
 import * as React from 'react';
+import { makeStyles, tokens } from '@fluentui/react-components';
+
+export const useStandardLayoutStyles = makeStyles({
+    rootStyle: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        backgroundColor: tokens.colorNeutralBackground3,
+        // ...shorthands.padding(tokens.spacingVerticalS, tokens.spacingHorizontalS),
+    },
+    headerStyle: {
+        flexShrink: 1,
+    },
+    bodyStyle: {
+        overflowY: 'auto',
+        flex: 5
+    },
+    footerStyle: {
+        flexShrink: 1
+    }
+})
 
 export interface StandardLayoutProps {
     header?: React.ReactNode;
@@ -6,11 +27,12 @@ export interface StandardLayoutProps {
     footer?: React.ReactNode;
 }
 export const StandardLayout: React.FC<StandardLayoutProps> = ({ header, body, footer }) => {
+    const { rootStyle, headerStyle, bodyStyle, footerStyle } = useStandardLayoutStyles();
     return (
-        <>
-            {header && <div>{header}</div>}
-            {body && <div>{body}</div>}
-            {footer && <div>{footer}</div>}
-        </>
+        <div className={rootStyle}>
+            {header && <div className={headerStyle}>{header}</div>}
+            {body && <div className={bodyStyle}>{body}</div>}
+            {footer && <div className={footerStyle}>{footer}</div>}
+        </div>
     );
 };

@@ -19,6 +19,9 @@ export const ConfigureJobs: React.FC = () => {
             body={
                 <StandardSection>Hello world</StandardSection>
             }
+            footer={
+                <>Hello footer</>
+            }
         />
     )
 };
