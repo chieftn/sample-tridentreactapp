@@ -13,10 +13,11 @@ export const ConfigureJobs: React.FC = () => {
                     <Breadcrumb size={'large'}>
                         <BreadcrumbItem>Configure</BreadcrumbItem>
                         <BreadcrumbDivider/>
-                        <BreadcrumbItem>Jo  bs</BreadcrumbItem>
+                        <BreadcrumbItem>Jobs</BreadcrumbItem>
                     </Breadcrumb>
                     <StandardSection>Hello Ribbon</StandardSection>
                     <StandardSection><div style={{ margin: 12}}>hello ribbon 2</div></StandardSection>
+                    <div style={{margin: 100}}>hello big</div>
                 </>
             }
             body={

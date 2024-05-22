@@ -3,7 +3,7 @@ import { makeStyles } from '@fluentui/react-components';
 
 export const useStandardCanvasStyles = makeStyles({
     rootStyle: {
-        height: 'calc(100% - 24px)'
+        height: 'calc(100% - 24px)',
     }
 })
 
