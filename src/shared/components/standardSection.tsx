@@ -11,6 +11,7 @@ export const useStandardSectionStyles = makeStyles({
         ...shorthands.borderWidth('1px'),
         ...shorthands.borderStyle('solid'),
         ...shorthands.borderColor(tokens.colorNeutralStroke1),
+        overflowY: 'auto'
     }
 });
 

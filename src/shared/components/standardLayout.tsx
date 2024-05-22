@@ -7,17 +7,18 @@ export const useStandardLayoutStyles = makeStyles({
         flexDirection: 'column',
         height: '100%',
         backgroundColor: tokens.colorNeutralBackground3,
-        // ...shorthands.padding(tokens.spacingVerticalS, tokens.spacingHorizontalS),
+        rowGap: tokens.spacingVerticalS,
+        paddingInline: tokens.spacingVerticalS
     },
     headerStyle: {
         flexShrink: 1,
     },
     bodyStyle: {
         overflowY: 'auto',
-        flex: 5
+        flex: 3
     },
     footerStyle: {
-        flexShrink: 1
+        flexShrink: 1,
     }
 })
 
