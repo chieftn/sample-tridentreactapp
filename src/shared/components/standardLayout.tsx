@@ -8,7 +8,7 @@ export const useStandardLayoutStyles = makeStyles({
         height: '100%',
         backgroundColor: tokens.colorNeutralBackground3,
         rowGap: tokens.spacingVerticalS,
-        paddingInline: tokens.spacingVerticalS
+        paddingInline: tokens.spacingVerticalL
     },
     headerStyle: {
         flexShrink: 1,
