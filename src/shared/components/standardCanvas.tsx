@@ -16,7 +16,9 @@ export const useStandardCanvasStyles = makeStyles({
     centerPaneStyle: {
         height: '100%',
         overflowY: 'auto',
-        flex: 3
+        flex: 3,
+        display: 'flex',
+        flexDirection: 'column'
     },
     drawerPaneStyle: {
         height: '100%',

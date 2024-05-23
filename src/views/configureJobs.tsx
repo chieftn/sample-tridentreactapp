@@ -88,6 +88,9 @@ export const ConfigureJobs: React.FC = () => {
                             <li>hello</li>
                         </ul>
                     }
+                    bottomPane={
+                        <div>bottom pane</div>
+                    }
                     drawerPane={
                         <div>
                             Hello drawer
