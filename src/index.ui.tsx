@@ -4,8 +4,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { App } from "./App";
 import { environments } from "./environments";
+import { initializationLocalization } from "./localization/i18n";
 
 export function initialize(params: InitParams) {
+    initializationLocalization();
     const client = createExtensionClient();
     const history = createBrowserHistory();
     const currentEnvironment = environments[params.environmentName] || environments.DEFAULT;
