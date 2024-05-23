@@ -3,6 +3,7 @@ import { Breadcrumb, BreadcrumbDivider, BreadcrumbItem } from '@fluentui/react-c
 import { StandardLayout } from '../shared/components/standardLayout';
 import { StandardSection } from 'src/shared/components/standardSection';
 import { StandardCanvas } from 'src/shared/components/standardCanvas';
+import { SamplePanel } from './samplePanel';
 
 export const ConfigureJobs: React.FC = () => {
 
@@ -24,79 +25,14 @@ export const ConfigureJobs: React.FC = () => {
                <StandardSection>
                     <StandardCanvas
                         navigationPane={
-                            <div>
-                                navigationPane
-                                <ul>
-                                    <li>hello nav</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello asdf as asdfasdf a asdf asdf asdf asdf asdf asdf asdf asdf asf </li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                    <li>hello</li>
-                                </ul>
-                            </div>
+                            <SamplePanel color={'red'} name='navigation pane'/>
                         }
                         centerPane={
-                        <ul>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                            <li>hello</li>
-                        </ul>
-                    }
-                    bottomPane={
-                        <div>bottom pane</div>
-                    }
-                    drawerPane={
-                        <div>
-                            Hello drawer
-                        </div>
-                    }
-
+                            <SamplePanel color='blue' name='center'/>
+                        }
+                        drawerPane={
+                            <SamplePanel color='green' name='persistent drawer'/>
+                        }
                     />
                </StandardSection>
             }

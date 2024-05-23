@@ -10,20 +10,16 @@ export const useStandardCanvasStyles = makeStyles({
     navigationPaneStyle: {
         height: '100%',
         overflowY: 'auto',
-        backgroundColor: 'green'
-
     },
     centerPaneStyle: {
         height: '100%',
         overflowY: 'auto',
         flex: 3,
         display: 'flex',
-        flexDirection: 'column'
     },
     drawerPaneStyle: {
         height: '100%',
         overflowY: 'auto',
-        backgroundColor: 'red'
     }
 })
 
@@ -35,14 +31,13 @@ export interface StandardCanvasProps {
 }
 export const StandardCanvas: React.FC<StandardCanvasProps> = (props) => {
     const { rootStyle, navigationPaneStyle, centerPaneStyle, drawerPaneStyle } = useStandardCanvasStyles();
-    const { navigationPane, drawerPane, centerPane, bottomPane } = props;
+    const { navigationPane, drawerPane, centerPane } = props;
 
     return (
         <div className={rootStyle}>
             {navigationPane && <div className={navigationPaneStyle}>{navigationPane}</div>}
             <div className={centerPaneStyle}>
-                <div>{centerPane}</div>
-                {bottomPane && <div>{bottomPane}</div>}
+                {centerPane}
             </div>
             {drawerPane && <div className={drawerPaneStyle}>{drawerPane}</div>}
         </div>
