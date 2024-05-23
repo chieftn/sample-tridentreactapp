@@ -14,7 +14,7 @@ export function App({ history, extensionClient, environmentConfig }: AppProps) {
     const { t } = useTranslation(['common', 'configure']);
     return (
         <>
-            <span>{t('common.yes')}</span>
+            <span>{t('common:common.configure')}</span>
             <span>{t('configure:configure')}</span>
         </>
     );
