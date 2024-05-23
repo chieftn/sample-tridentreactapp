@@ -3,6 +3,7 @@ import { Breadcrumb, BreadcrumbDivider, BreadcrumbItem } from '@fluentui/react-c
 import { StandardLayout } from '../shared/components/standardLayout';
 import { StandardSection } from 'src/shared/components/standardSection';
 import { StandardCanvas } from 'src/shared/components/standardCanvas';
+import { StandardStack } from 'src/shared/components/standardStack';
 import { SamplePanel } from './samplePanel';
 
 export const ConfigureJobs: React.FC = () => {
@@ -28,7 +29,10 @@ export const ConfigureJobs: React.FC = () => {
                             <SamplePanel color={'red'} name='navigation pane'/>
                         }
                         centerPane={
-                            <SamplePanel color='blue' name='center'/>
+                            <StandardStack
+                                topPane={<SamplePanel color='blue' name='center'/>}
+                                bottomPane={<SamplePanel color='orange' name='center bottom'/>}
+                            />
                         }
                         drawerPane={
                             <SamplePanel color='green' name='persistent drawer'/>

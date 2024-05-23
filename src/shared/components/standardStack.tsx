@@ -5,13 +5,14 @@ export const useStandardStackStyles = makeStyles({
     rootStyle: {
         height: '100%',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        flexGrow: 2
     },
     topPaneStyle: {
-
+        overflowY: 'auto'
     },
     bottomPaneStyle: {
-
+        overflowY: 'auto'
     },
 })
 

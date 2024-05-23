@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { makeStyles } from '@fluentui/react-components';
+import { makeStyles, tokens } from '@fluentui/react-components';
 
 export const useStandardCanvasStyles = makeStyles({
     rootStyle: {
         height: 'calc(100% - 8px)',
         display: 'flex',
-        alignItems: 'stretch'
+        alignItems: 'stretch',
+        gap: tokens.spacingVerticalS
     },
     navigationPaneStyle: {
         height: '100%',
