@@ -1,3 +1,26 @@
 {
-    "configure": "configureMe"
+    "configure": "configureMe",
+    "hello": {
+        "world": {
+            "here": {
+                "we": {
+                    "are": "go"
+                }
+            }
+        }
+    },
+    "plurals": {
+        "me_one": "1 item",
+        "me_other": "{{count}} items",
+        "me_underscore_one": "1 item",
+        "me_underscore_other": "{{count}} items"
+    },
+    "interpolation": {
+        "me_interpolated": "{{myValue}} are us"
+    },
+    "typeInterpolation": {
+        "me_one": "one",
+        "me_two": "two",
+        "me_three": "three"
+    }
 }
